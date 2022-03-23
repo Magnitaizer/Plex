@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sudo pacman -Syu
 echo '#!/bin/sh' >> /home/nuc/.xinitrc
 echo ' ' >> /home/nuc/.xinitrc
 echo 'exec plexmediaplayer' >> /home/nuc/.xinitrc
@@ -12,7 +13,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl disable display-manager.service
 sudo passwd -d nuc
 sudo pacman -S base-devel xorg-xinit xorg git
-git clone https://aur.archlinux.org/trizen.git /home/nuc
+git clone https://aur.archlinux.org/trizen.git /home/nuc/trizen
 cd /home/nuc/trizen
 makepkg -sri
 trizen -S plex-media-player
