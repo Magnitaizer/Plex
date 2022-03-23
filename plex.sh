@@ -2,10 +2,10 @@
 
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
-sudo pacman -S base-devel xorg-xinit xorg git cmake rhash jsoncpp desktop-file-utils --noconfirm
+sudo pacman -S base-devel xorg-xinit xorg git --noconfirm
 git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
 cd /home/$USER/trizen
-makepkg -sri
+makepkg -sri --noconfirm
 trizen -S plex-media-player --noconfirm
 echo '#!/bin/sh' >> /home/$USER/.xinitrc
 echo ' ' >> /home/$USER/.xinitrc
