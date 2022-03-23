@@ -17,3 +17,4 @@ git clone https://aur.archlinux.org/trizen.git /home/nuc/trizen
 cd /home/nuc/trizen
 makepkg -sri
 trizen -S plex-media-player --noconfirm
+sudo reboot
