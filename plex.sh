@@ -1,6 +1,7 @@
 #!/bin/sh
 
-sudo pacman -Syu
+sudo passwd -d nuc
+sudo pacman -Syu  --noconfirm
 echo '#!/bin/sh' >> /home/nuc/.xinitrc
 echo ' ' >> /home/nuc/.xinitrc
 echo 'exec plexmediaplayer' >> /home/nuc/.xinitrc
@@ -11,9 +12,8 @@ sudo sed -i '38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a nuc %I $TERM+' /etc/sy
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl disable display-manager.service
-sudo passwd -d nuc
-sudo pacman -S base-devel xorg-xinit xorg git
+sudo pacman -S base-devel xorg-xinit xorg git --noconfirm
 git clone https://aur.archlinux.org/trizen.git /home/nuc/trizen
 cd /home/nuc/trizen
 makepkg -sri
-trizen -S plex-media-player
+trizen -S plex-media-player --noconfirm
