@@ -10,6 +10,7 @@ trizen -S plex-media-player --noconfirm
 echo '#!/bin/sh' >> /home/$USER/.xinitrc
 echo ' ' >> /home/$USER/.xinitrc
 echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
+echo ' ' >> /home/$USER/.bash_profile
 echo 'if [[ ! ${DISPLAY} && ${XDG_VTNR} == 1 ]]; then' >> /home/$USER/.bash_profile
 echo '     exec startx' >> /home/$USER/.bash_profile
 echo 'fi' >> /home/$USER/.bash_profile
