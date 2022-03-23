@@ -8,7 +8,7 @@ echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
 echo 'if [[ ! ${DISPLAY} && ${XDG_VTNR} == 1 ]]; then' >> /home/$USER/.bash_profile
 echo '     exec startx' >> /home/$USER/.bash_profile
 echo 'fi' >> /home/$USER/.bash_profile
-sudo sed -i "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER" %I $TERM+" /etc/systemd/system/getty.target.wants/getty@tty1.service
+sudo sed -i "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER' %I $TERM+' /etc/systemd/system/getty.target.wants/getty@tty1.service
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl disable display-manager.service
