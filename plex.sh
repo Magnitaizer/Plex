@@ -2,6 +2,11 @@
 
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
+sudo pacman -S base-devel xorg-xinit xorg git cmake rhash jsoncpp desktop-file-utils --noconfirm
+git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
+cd /home/$USER/trizen
+makepkg -sri
+trizen -S plex-media-player --noconfirm
 echo '#!/bin/sh' >> /home/$USER/.xinitrc
 echo ' ' >> /home/$USER/.xinitrc
 echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
@@ -12,9 +17,4 @@ sudo sed -i "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER' %I $TERM+' /et
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl disable display-manager.service
-sudo pacman -S base-devel xorg-xinit xorg git cmake rhash jsoncpp desktop-file-utils --noconfirm
-git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
-cd /home/$USER/trizen
-makepkg -sri
-trizen -S plex-media-player --noconfirm
 sudo reboot
