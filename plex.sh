@@ -10,7 +10,7 @@ echo 'if [[ ! ${DISPLAY} && ${XDG_VTNR} == 1 ]]; then' >> /home/nuc/.bash_profil
 echo '     exec startx' >> /home/nuc/.bash_profile
 echo 'fi' >> /home/nuc/.bash_profile
 
-#sed -i 's+-/sbin/agetty - %I $TERM +-/sbin/agetty -a USERNAME %I $TERM+g' /etc/systemd/system/getty.target.wants/getty@tty1.service
+#sed -i 's+-/sbin/agetty -o '-p -- \\u' --noclear - $TERM +-/sbin/agetty -a USERNAME %I $TERM+g' /etc/systemd/system/getty.target.wants/getty@tty1.service
 
 sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
