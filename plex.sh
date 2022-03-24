@@ -20,3 +20,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl disable display-manager.service
 sudo systemctl mask systemd-udev-settle
 sudo reboot
+
+if grep -q exec startx "/home/$USER/.xinitrc"; then
+  echo "killroy was here"
+fi
