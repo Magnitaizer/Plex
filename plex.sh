@@ -2,11 +2,12 @@
 
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
-sudo pacman -S base-devel xorg-xinit xorg git --noconfirm
+sudo pacman -S base-devel xorg-xinit xorg git python-pip --noconfirm
 git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
 cd /home/$USER/trizen
 makepkg -sri --noconfirm
 trizen -S plex-media-player --noconfirm
+pip install plexapi
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
