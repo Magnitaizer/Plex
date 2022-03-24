@@ -9,6 +9,7 @@ makepkg -sri --noconfirm
 trizen -S plex-media-player --noconfirm
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
+  echo 'skipping this part...'
 else
   echo '#!/bin/sh' >> /home/$USER/.xinitrc
   echo ' ' >> /home/$USER/.xinitrc
@@ -16,6 +17,7 @@ else
 fi
 
 if grep -q 'exec startx' "/home/$USER/.bash_profile"; then
+  echo 'skipping this part...'
 else
   echo ' ' >> /home/$USER/.bash_profile
   echo 'if [[ ! ${DISPLAY} && ${XDG_VTNR} == 1 ]]; then' >> /home/$USER/.bash_profile
