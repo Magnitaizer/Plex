@@ -8,6 +8,7 @@ cd /home/$USER/trizen
 makepkg -sri --noconfirm
 trizen -S plex-media-player --noconfirm
 pip install plexapi
+git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
