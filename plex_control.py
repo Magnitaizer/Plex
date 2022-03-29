@@ -3,8 +3,8 @@
 import socket, select, plexapi
 
 from plexapi.server import PlexServer
-baseurl = 'http://192.168.11.11:32400'
-token = 'AkehUrUk3D4sVzHzZcxX'
+baseurl = '<SERVER_IP>'
+token = '<TOKEN>'
 plex = PlexServer(baseurl, token)
 
 def main():
