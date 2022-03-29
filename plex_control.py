@@ -59,6 +59,24 @@ def main():
                         plex.clients()[0].goBack();
                       case "Home":
                         plex.clients()[0].goToHome();
+                      case "Menu":
+                        plex.clients()[0].contextMenu();
+                      case "Info":
+                        plex.clients()[0].contextMenu();
+                      case "Play":
+                        plex.clients()[0].play();
+                      case "Pause":
+                        plex.clients()[0].pause();
+                      case "Stop":
+                        plex.clients()[0].stop();
+                      case "Next":
+                        plex.clients()[0].stepForward();
+                      case "Prev":
+                        plex.clients()[0].stepBack();
+                      case "Subtitle":
+                        plex.clients()[0].setSubtitleStream();
+                      case "Audio":
+                        plex.clients()[0].setAudioStream();
                       case _:
                         print("Err 404 Not Found!")
                        
