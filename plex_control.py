@@ -54,11 +54,11 @@ def main():
                       case "Down":
                         plex.clients()[0].moveDown();
                       case "Enter":
-                        plex.clients()[0].moveUp();
+                        plex.clients()[0].select();
                       case "Back":
-                        plex.clients()[0].moveUp();
+                        plex.clients()[0].goBack();
                       case "Home":
-                        plex.clients()[0].moveUp();
+                        plex.clients()[0].goToHome();
                       case _:
                         print("Err 404 Not Found!")
                        
