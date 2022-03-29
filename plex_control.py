@@ -3,9 +3,10 @@
 import socket, select, plexapi
 
 from plexapi.server import PlexServer
-baseurl = '<SERVER_IP>'
+baseurl = '<IP_ADDRESS>'
 token = '<TOKEN>'
 plex = PlexServer(baseurl, token)
+client = plex.client("<CLIENT_NAME>")
 
 def main():
     CONNECTION_LIST = []    # list of socket clients
@@ -43,40 +44,42 @@ def main():
                     #In Windows, sometimes when a TCP program closes abruptly,
                     # a "Connection reset by peer" exception will be thrown
                     data = str(sock.recv(RECV_BUFFER))
+                    print(data)
                     control = data[2:-1]  #Get rid of extra symbols if your client is sending any
+                    print(control)
                     match control:
                       case "Up":
-                        plex.clients()[0].moveUp(); 
+                        client.moveUp(); 
                       case "Left":
-                        plex.clients()[0].moveLeft();
+                        client.moveLeft();
                       case "Right":
-                        plex.clients()[0].moveRight();
+                        client.moveRight();
                       case "Down":
-                        plex.clients()[0].moveDown();
-                      case "Enter":
-                        plex.clients()[0].select();
+                        client.moveDown();
+                      case "Select":
+                        client.select();
                       case "Back":
-                        plex.clients()[0].goBack();
+                        client.goBack();
                       case "Home":
-                        plex.clients()[0].goToHome();
+                        client.goToHome();
                       case "Menu":
-                        plex.clients()[0].contextMenu();
+                        client.Menu();
                       case "Info":
-                        plex.clients()[0].contextMenu();
+                        client.contextMenu();
                       case "Play":
-                        plex.clients()[0].play();
+                        client.play();
                       case "Pause":
-                        plex.clients()[0].pause();
+                        client.pause();
                       case "Stop":
-                        plex.clients()[0].stop();
+                        client.stop();
                       case "Next":
-                        plex.clients()[0].stepForward();
+                        client.stepForward();
                       case "Prev":
-                        plex.clients()[0].stepBack();
-                      case "Sub":
-                        plex.clients()[0].setSubtitleStream();
-                      case "Audio":
-                        plex.clients()[0].setAudioStream();
+                        client.stepBack();
+                      case "NextSub":
+                        client.setSubtitleStream();
+                      case "NextAudio":
+                        client.setAudioStream();
                       case _:
                         print("Err 404 Not Found!")
                        
