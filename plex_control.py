@@ -43,7 +43,7 @@ def main():
                     #In Windows, sometimes when a TCP program closes abruptly,
                     # a "Connection reset by peer" exception will be thrown
                     data = str(sock.recv(RECV_BUFFER))
-                    control = data[2:-1]
+                    control = data[2:-1]  #Get rid of extra symbols if your client is sending any
                     match control:
                       case "Up":
                         plex.clients()[0].moveUp(); 
@@ -73,7 +73,7 @@ def main():
                         plex.clients()[0].stepForward();
                       case "Prev":
                         plex.clients()[0].stepBack();
-                      case "Subtitle":
+                      case "Sub":
                         plex.clients()[0].setSubtitleStream();
                       case "Audio":
                         plex.clients()[0].setAudioStream();
