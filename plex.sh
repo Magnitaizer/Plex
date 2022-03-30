@@ -11,6 +11,7 @@ pip install plexapi
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/
 sudo mv /home/$USER/Shalash/plexctl.service /etc/systemd/system/plexctl.service
 sudo systemctl enable plexctl.service 
+sudo chmod +x /home/$USER/Shalash/plex_control.py
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
