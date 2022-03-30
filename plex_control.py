@@ -62,10 +62,8 @@ def main():
                         client.goBack();
                       case "Home":
                         client.goToHome();
-                      case "Menu":
-                        client.Menu();
-                      case "Info":
-                        client.contextMenu();
+                      #case "Menu":
+                      #  client.contextMenu();
                       case "Play":
                         client.play();
                       case "Pause":
@@ -76,10 +74,10 @@ def main():
                         client.stepForward();
                       case "Prev":
                         client.stepBack();
-                      case "NextSub":
-                        client.setSubtitleStream();
-                      case "NextAudio":
-                        client.setAudioStream();
+                      #case "NextSub":
+                      #  client.setSubtitleStream();
+                      #case "NextAudio":
+                      #  client.setAudioStream();
                       case _:
                         print("Err 404 Not Found!")
                        

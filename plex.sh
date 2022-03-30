@@ -9,12 +9,15 @@ makepkg -sri --noconfirm
 trizen -S plex-media-player --noconfirm
 pip install plexapi
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/
+sudo mv /home/$USER/Shalash/plexctl.service /etc/systemd/system/plexctl.service
+sudo systemctl enable plexctl.service 
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
 else
   echo '#!/bin/sh' >> /home/$USER/.xinitrc
   echo ' ' >> /home/$USER/.xinitrc
+  echo 'start-pulseaudio-x11 &' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
 fi
 

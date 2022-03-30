@@ -5,8 +5,8 @@ After=network.target syslog.target
 
 [Service]
 Restart=on-failure
-RestartSec=30s
-ExecStart=python3 /home/nuc/plex_control.py
+RestartSec=15s
+ExecStart=python3 /home/$USER/Shalash/plex_control.py
 
 [Install]
 WantedBy=multi-user.target
