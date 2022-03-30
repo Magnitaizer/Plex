@@ -14,6 +14,8 @@ pip install plexapi
 
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
 
+sudo sed -i "9s+$USER+"$USER'+' /home/$USER/Plex/plexctl.service
+
 sudo mv /home/$USER/Plex/plexctl.service /etc/systemd/system/plexctl.service
 
 sudo systemctl enable plexctl.service 
