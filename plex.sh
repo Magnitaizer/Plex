@@ -3,15 +3,23 @@
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
 sudo pacman -S base-devel xorg-xinit xorg git python-pip --noconfirm
+
 git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
 cd /home/$USER/trizen
 makepkg -sri --noconfirm
+
 trizen -S plex-media-player --noconfirm
+
 pip install plexapi
+
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
+
 sudo mv /home/$USER/Shalash/plexctl.service /etc/systemd/system/plexctl.service
+
 sudo systemctl enable plexctl.service 
+
 sudo chmod +x /home/$USER/Plex/plex_control.py
+
 sudo sed -i "9s+.*<CLIENT_NAME>.*+"$HOSTNAME'+' /home/$USER/Plex/plex_control.py
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
