@@ -3,7 +3,7 @@
 import socket, select, plexapi
 
 from plexapi.server import PlexServer
-baseurl = '<IP_ADDRESS>'   #SET YOUR SERVER IP ADDRESS
+baseurl = 'http://<IP_ADDRESS>:32400'   #SET YOUR SERVER IP ADDRESS
 token = '<TOKEN>'          #SET YOUR SERVER TOKEN (X-Plex-Token)
 plex = PlexServer(baseurl, token)
 client = plex.client("<CLIENT_NAME>")    #You can change that to control other plex clients
