@@ -10,17 +10,7 @@ makepkg -sri --noconfirm
 
 trizen -S plex-media-player --noconfirm
 
-sudo pip install PyAutoGui
-
-git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
-
-sudo sed -i "9s+$USER+"$USER'+' /home/$USER/Plex/Lplexctl.service
-
-sudo mv /home/$USER/Plex/Lplexctl.service /etc/systemd/system/Lplexctl.service
-
-sudo systemctl enable Lplexctl.service 
-
-sudo chmod +x /home/$USER/Plex/local_control.py
+sudo pip install pynput
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
@@ -28,6 +18,7 @@ else
   echo '#!/bin/sh' >> /home/$USER/.xinitrc
   echo ' ' >> /home/$USER/.xinitrc
   echo 'start-pulseaudio-x11 &' >> /home/$USER/.xinitrc
+  echo 'exec python3 /home/$USER/Plex/local_control.py &' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
 fi
 

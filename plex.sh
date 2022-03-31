@@ -14,15 +14,15 @@ sudo pip install plexapi
 
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
 
-sudo sed -i "9s+$USER+"$USER'+' /home/$USER/Plex/plexctl.service
+#sudo sed -i "9s+$USER+"$USER'+' /home/$USER/Plex/plexctl.service
 
-sudo mv /home/$USER/Plex/plexctl.service /etc/systemd/system/plexctl.service
+#sudo mv /home/$USER/Plex/plexctl.service /etc/systemd/system/plexctl.service
 
-sudo systemctl enable plexctl.service 
+#sudo systemctl enable plexctl.service 
 
-sudo chmod +x /home/$USER/Plex/plex_control.py
+#sudo chmod +x /home/$USER/Plex/plex_control.py
 
-sudo sed -i "9s+<CLIENT_NAME>+"$HOSTNAME'+' /home/$USER/Plex/plex_control.py
+#sudo sed -i "9s+<CLIENT_NAME>+"$HOSTNAME'+' /home/$USER/Plex/plex_control.py
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
@@ -30,6 +30,7 @@ else
   echo '#!/bin/sh' >> /home/$USER/.xinitrc
   echo ' ' >> /home/$USER/.xinitrc
   echo 'start-pulseaudio-x11 &' >> /home/$USER/.xinitrc
+  echo 'exec python3 /home/$USER/Plex/plex_control.py &' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
 fi
 
