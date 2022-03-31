@@ -69,6 +69,9 @@ def main():
                       case "Menu":
                         keyboard.press(Key.enter)
                         keyboard.release(Key.enter)
+                      case "Info":
+                        keyboard.press('i')
+                        keyboard.release('i')
                       case "Play":
                         keyboard.press('p')
                         keyboard.release('p') 
