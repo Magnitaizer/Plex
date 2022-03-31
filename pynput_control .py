@@ -1,6 +1,6 @@
 # Socket server in python using select function
  
-import socket, select, pyautogui
+import socket, select, pynput
 
 def main():
     CONNECTION_LIST = []    # list of socket clients
@@ -12,6 +12,9 @@ def main():
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind(("0.0.0.0", PORT))
     server_socket.listen(10)
+
+    from pynput.keyboard import Key, Controller
+    keyboard = Controller()
  
     # Add server socket to the list of readable connections
     CONNECTION_LIST.append(server_socket)
@@ -43,35 +46,50 @@ def main():
                     print(control)
                     match control:
                       case "Up":
-                        pyautogui.press("up"); 
+                        keyboard.press('up')
+                        keyboard.release('up') 
                       case "Left":
-                        pyautogui.press("left");
+                        keyboard.press('left')
+                        keyboard.release('left') 
                       case "Right":
-                        pyautogui.press("right");
+                        keyboard.press('right')
+                        keyboard.release('right') 
                       case "Down":
-                        pyautogui.press("down");
+                        keyboard.press('down')
+                        keyboard.release('down') 
                       case "Select":
-                        pyautogui.press("enter");
+                        keyboard.press('enter')
+                        keyboard.release('enter') 
                       case "Back":
-                        pyautogui.press("b");
+                        keyboard.press('b')
+                        keyboard.release('b') 
                       case "Home":
-                        pyautogui.press("h");
+                        keyboard.press('h')
+                        keyboard.release('h') 
                       case "Menu":
-                        pyautogui.press("enter");
+                        keyboard.press('enter')
+                        keyboard.release('enter')
                       case "Play":
-                        pyautogui.press("p");
+                        keyboard.press('p')
+                        keyboard.release('p') 
                       case "Pause":
-                        pyautogui.press("p");
+                        keyboard.press('p')
+                        keyboard.release('p') 
                       case "Stop":
-                        pyautogui.press("x");
+                        keyboard.press('x')
+                        keyboard.release('x') 
                       case "Next":
-                        pyautogui.press("up");
+                        keyboard.press('up')
+                        keyboard.release('up') 
                       case "Prev":
-                        pyautogui.press("down");
+                        keyboard.press('down')
+                        keyboard.release('down') 
                       case "NextSub":
-                        pyautogui.press("l");
+                        keyboard.press('l')
+                        keyboard.release('l') 
                       case "NextAudio":
-                        pyautogui.press("a");
+                        keyboard.press('a')
+                        keyboard.release('a') 
                       case _:
                         print("Err 404 Not Found!")
                        

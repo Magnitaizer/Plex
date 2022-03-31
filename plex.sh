@@ -10,7 +10,7 @@ makepkg -sri --noconfirm
 
 trizen -S plex-media-player --noconfirm
 
-pip install plexapi
+sudo pip install plexapi
 
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
 

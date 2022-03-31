@@ -10,7 +10,7 @@ makepkg -sri --noconfirm
 
 trizen -S plex-media-player --noconfirm
 
-pip install PyAutoGui
+sudo pip install PyAutoGui
 
 git clone https://github.com/Magnitaizer/Shalash.git /home/$USER/Plex
 
@@ -18,7 +18,7 @@ sudo sed -i "9s+$USER+"$USER'+' /home/$USER/Plex/Lplexctl.service
 
 sudo mv /home/$USER/Plex/Lplexctl.service /etc/systemd/system/Lplexctl.service
 
-sudo systemctl enable plexctl.service 
+sudo systemctl enable Lplexctl.service 
 
 sudo chmod +x /home/$USER/Plex/local_control.py
 
