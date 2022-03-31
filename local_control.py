@@ -5,11 +5,14 @@ while True:
         from pynput.keyboard import Key, Controller
         keyboard = Controller()  
 
+        PCName = socket.gethostname()
+        addr = socket.gethostbyname(PCName)
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.bind(('<YOUR_IP_HERE>', 5000))
+        server.bind(('', 5000))
         server.listen()
 
         print('work')
+        print(addr)
 
         serverWorking = True
         clientOnline = False
