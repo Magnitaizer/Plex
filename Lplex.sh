@@ -8,6 +8,8 @@ git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
 cd /home/$USER/trizen
 makepkg -sri --noconfirm
 
+git clone https://github.com/Magnitaizer/Plex.git /home/$USER/Plex
+
 trizen -S plex-media-player --noconfirm
 
 pip install pynput
