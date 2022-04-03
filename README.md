@@ -1,6 +1,6 @@
 # plex.sh
 This script is initializing plex-media-player from AUR repository and uses your pc as plex media player without window manager getting started!
 + 1.Download https://osdn.net/projects/arch-linux-gui/downloads/77046/archlinux-gui-plasma-pure-2022.03-x86_64.iso/  and install it on your device
-+ 2.After loading open a terminal and execute bash<(curl -L raw.githubusercontent.com/Magnitaizer/Plex/main/plex.sh)
-+ 3.To control this plex client via tcp client connect to localhost:5000 you need to setup server ip and token in /home/$USER/Plex/plex_control.py
++ 2.After loading open a terminal and execute bash<(curl -L raw.githubusercontent.com/Magnitaizer/Plex/main/Lplex.sh)
++ 3.To control this plex client via tcp client connect to machine_ip:5000 which you can see by pressing I button ,when Plex is loaded
 + 4.Enjoy!
