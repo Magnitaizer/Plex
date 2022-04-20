@@ -37,9 +37,9 @@ sudo sed -i --follow-symlinks "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$US
 
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo update-grub
 
-sudo sed -i --follow-symlinks "55s+base+ base shutdown +' /etc/mkinitcpio.conf
+sudo sed -i --follow-symlinks "55s+base+ base shutdown +" /etc/mkinitcpio.conf
 
 sudo mkinitcpio -P
 
