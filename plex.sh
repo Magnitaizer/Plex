@@ -4,10 +4,6 @@ sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
 sudo pacman -S base-devel xorg-xinit xorg git python-pip --noconfirm
 
-xset -dpms
-
-xset s off
-
 git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
 cd /home/$USER/trizen
 makepkg -sri --noconfirm
@@ -46,6 +42,10 @@ sudo update-grub
 sudo sed -i --follow-symlinks "55s+base+ base shutdown +" /etc/mkinitcpio.conf
 
 sudo mkinitcpio -P
+
+xset -dpms
+
+xset s off
 
 pactl set-card-profile 0 output:hdmi-stereo
 
