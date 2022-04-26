@@ -30,10 +30,10 @@ fi
 if grep -q 'defaults.pcm.card 0' "/etc/asound.conf"; then
   echo 'skipping this part...'
 else
-  sudo echo ' ' >> /etc/asound.conf
-  sudo echo 'defaults.pcm.card 0' >> /etc/asound.conf
-  sudo echo 'defaults.pcm.device 3' >> /etc/asound.conf
-  sudo echo 'defaults.ctl.card 0' >> /etc/asound.conf
+  sudo echo ' ' | sudo tee -a /etc/asound.conf
+  sudo echo 'defaults.pcm.card 0' | sudo tee -a /etc/asound.conf
+  sudo echo 'defaults.pcm.device 3' | sudo tee -a /etc/asound.conf
+  sudo echo 'defaults.ctl.card 0' | sudo tee -a /etc/asound.conf
 fi
 
 sudo sed -i --follow-symlinks "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER' %I $TERM+' /etc/systemd/system/getty.target.wants/getty@tty1.service
