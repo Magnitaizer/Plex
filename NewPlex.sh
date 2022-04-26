@@ -2,7 +2,7 @@
 
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
-sudo pacman -S base-devel xorg-xinit xorg python-pip --noconfirm #(patch) 
+sudo pacman -S base-devel xorg-xinit python-pip --noconfirm
 
 git clone https://github.com/Magnitaizer/Plex.git /home/$USER/Plex
 
@@ -30,10 +30,10 @@ fi
 if grep -q 'defaults.pcm.card 0' "/etc/asound.conf"; then
   echo 'skipping this part...'
 else
-  echo ' ' >> /etc/asound.conf
-  echo 'defaults.pcm.card 0' >> /etc/asound.conf
-  echo 'defaults.pcm.device 3' >> /etc/asound.conf
-  echo 'defaults.ctl.card 0' >> /etc/asound.conf
+  sudo echo ' ' >> /etc/asound.conf
+  sudo echo 'defaults.pcm.card 0' >> /etc/asound.conf
+  sudo echo 'defaults.pcm.device 3' >> /etc/asound.conf
+  sudo echo 'defaults.ctl.card 0' >> /etc/asound.conf
 fi
 
 sudo sed -i --follow-symlinks "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER' %I $TERM+' /etc/systemd/system/getty.target.wants/getty@tty1.service
