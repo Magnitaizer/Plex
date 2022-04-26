@@ -2,24 +2,18 @@
 
 sudo passwd -d $USER
 sudo pacman -Syu  --noconfirm
-sudo pacman -S base-devel xorg-xinit xorg git python-pip --noconfirm
-
-git clone https://aur.archlinux.org/trizen.git /home/$USER/trizen
-cd /home/$USER/trizen
-makepkg -sri --noconfirm
+sudo pacman -S base-devel xorg-xinit xorg python-pip --noconfirm #(patch) 
 
 git clone https://github.com/Magnitaizer/Plex.git /home/$USER/Plex
 
-trizen -S plex-media-player --noconfirm
+paru -S plex-media-player --noconfirm
 
 pip install pynput
 
 if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
   echo 'skipping this part...'
 else
-  echo '#!/bin/sh' >> /home/$USER/.xinitrc
   echo ' ' >> /home/$USER/.xinitrc
-  echo 'start-pulseaudio-x11 &' >> /home/$USER/.xinitrc
   echo 'exec python3 Plex/local_control.py &' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
 fi
@@ -33,24 +27,24 @@ else
   echo 'fi' >> /home/$USER/.bash_profile
 fi
 
+if grep -q 'defaults.pcm.card 0' "/etc/asound.conf"; then
+  echo 'skipping this part...'
+else
+  echo ' ' >> /etc/asound.conf
+  echo 'defaults.pcm.card 0' >> /etc/asound.conf
+  echo 'defaults.pcm.device 3' >> /etc/asound.conf
+  echo 'defaults.ctl.card 0' >> /etc/asound.conf
+fi
+
 sudo sed -i --follow-symlinks "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$USER' %I $TERM+' /etc/systemd/system/getty.target.wants/getty@tty1.service
 
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
-sudo grub-mkconfig -o /boot/efi/grub/grub.cfg
-
-sudo sed -i --follow-symlinks "55s+base+ base shutdown +" /etc/mkinitcpio.conf
-
-sudo mkinitcpio -P
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 xset -dpms
 
 xset s off
 
-pactl set-card-profile 0 output:hdmi-stereo
-
 sudo systemctl disable display-manager.service
 
-#sudo systemctl mask systemd-udev-settle
-
-sudo reboot
