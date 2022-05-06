@@ -16,6 +16,8 @@ else
   echo ' ' >> /home/$USER/.xinitrc
   echo 'exec python3 Plex/local_control.py &' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
+  echo 'exec xset s 0 0  &' >> /home/$USER/.xinitrc
+  echo 'exec xset dpms 0 0 &' >> /home/$USER/.xinitrc
 fi
 
 if grep -q 'exec startx' "/home/$USER/.bash_profile"; then
@@ -42,9 +44,9 @@ sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-xset -dpms
+#xset -dpms
 
-xset s off
+#xset s off
 
 sudo systemctl disable display-manager.service
 
