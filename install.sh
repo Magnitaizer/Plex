@@ -15,9 +15,8 @@ if grep -q 'exec plexmediaplayer' "/home/$USER/.xinitrc"; then
 else
   echo ' ' >> /home/$USER/.xinitrc
   echo 'exec python3 Plex/local_control.py &' >> /home/$USER/.xinitrc
+  echo 'xset s off -dpms' >> /home/$USER/.xinitrc
   echo 'exec plexmediaplayer' >> /home/$USER/.xinitrc
-  echo 'exec xset s 0 0  &' >> /home/$USER/.xinitrc
-  echo 'exec xset dpms 0 0 &' >> /home/$USER/.xinitrc
 fi
 
 if grep -q 'exec startx' "/home/$USER/.bash_profile"; then
@@ -43,10 +42,6 @@ sudo sed -i --follow-symlinks "38s+.*ExecStart.*+ExecStart=-/sbin/agetty -a "$US
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-#xset -dpms
-
-#xset s off
 
 sudo systemctl disable display-manager.service
 
