@@ -84,4 +84,4 @@ while True:
         print('error')
     else:
         break
-    time.sleep(15)
+    time.sleep(5)
