@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=python3 /home/plex/Plex/local_control.py
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Pynput
+Name=Pynput
+Comment[en_US]=
+Comment=
