@@ -76,7 +76,7 @@ exec_always --no-startup-id ff-theme-util
 exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 #exec_always --no-startup-id flatpak run tv.plex.PlexHTPC
-exec_always --no-startup-id $HOME/Plex/plexx.sh
+exec_always --no-startup-id $HOME/Plex/plex.sh
 exec_always --no-startup-id python3 $HOME/Plex/local_control.py &
 
 # hide/unhide i3status bar
