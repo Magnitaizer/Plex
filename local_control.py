@@ -65,11 +65,11 @@ while True:
                         keyboard.press('x')
                         keyboard.release('x') 
                       case "Next":
-                        keyboard.press(Key.up)
-                        keyboard.release(Key.up) 
+                        keyboard.press(Key.end)
+                        keyboard.release(Key.end) 
                       case "Prev":
-                        keyboard.press(Key.down)
-                        keyboard.release(Key.down) 
+                        keyboard.press(Key.home)
+                        keyboard.release(Key.home) 
                       case "NextSub":
                         keyboard.press('l')
                         keyboard.release('l') 
