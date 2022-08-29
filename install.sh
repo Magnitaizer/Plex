@@ -8,7 +8,7 @@ sudo pacman -Syu  --noconfirm
 
 pip install pynput
 
-flatpak install flathub tv.plex.PlexHTPC
+flatpak install flathub tv.plex.PlexHTPC -y
 
 sudo sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
 
