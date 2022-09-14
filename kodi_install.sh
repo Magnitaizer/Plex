@@ -2,7 +2,7 @@
 
 sudo passwd -d $USER
 sudo apt update &&  sudo apt upgrade -y && sudo apt autoremove -y
-sudo apt install base-devel kodi --noconfirm
+sudo apt install base-devel kodi -y
 
 git clone https://github.com/Magnitaizer/Plex.git /home/$USER/Kodi
 
